@@ -1,0 +1,46 @@
+#! /bin/sh
+
+#pgrep -x sxhkd > /dev/null || sxhkd &
+# for android studio
+wname LG3D &
+
+sxhkd &
+nm-applet &
+# suspends within 5 minutes
+xidlehook --not-when-audio --not-when-fullscreen --timer 300 'systemctl suspend' '' &
+setxkbmap -layout us,br -option grp:alt_shift_toggle
+xsetroot -cursor_name X_cursor &
+
+$HOME/.config/polybar/launch.sh
+
+cvt 1600 900 60
+xrandr --newmode "1600x900_60.00" 118.25 1600 1696 1856 2112 900 903 908 934 -hsync +vsync
+xrandr --addmode eDP-1 "1600x900_60.00"
+
+if [ "$(xrandr -q | grep "HDMI-1 connected")" ]; then
+  xrandr --output eDP-1 --mode "1600x900_60.00" --output HDMI-1 --mode 1920x1080 --primary --above eDP-1
+else
+  xrandr -s "1600x900_60.00"
+fi
+
+bspc monitor eDP-1 -d 1 2 3 4 5
+bspc monitor HDMI-1 -d 6 7 8 9 10
+
+feh --bg-fill $HOME/Downloads/wallpaper/7.jpeg
+
+picom --experimental-backends &
+
+bspc config border_width 0
+bspc config window_gap 10
+
+bspc config split_ratio 0.52
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+
+bspc rule -a android-studio state=floating border=off follow=off
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a firefox desktop='^5'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
