@@ -17,6 +17,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 alias c="clear"
@@ -27,6 +28,7 @@ alias ls='exa -l'
 alias code='/Users/marcelofeitoza/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 alias s-now="sudo shutdown -h now"
 alias docker-clean='docker ps -q | xargs -r docker stop && docker ps -a -q | xargs -r docker rm && docker images -q | xargs -r docker rmi'
+alias n='nvim'
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.asdf/shims:$PATH"
@@ -36,3 +38,12 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export PATH="$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin"
 export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="/Users/marcelofeitoza/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/marcelofeitoza/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+alias update-dotfile=/Users/marcelofeitoza/Development/dotfiles/update-dotfile.sh
