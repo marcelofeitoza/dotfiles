@@ -37,3 +37,5 @@ yabai -m rule --add app="^FaceTime$" manage=off
 yabai -m rule --add app="^Weather$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^GIMP$" manage=off
+yabai -m rule --add app="^Activity Monitor" manage=off
+yabai -m rule --add app="^iSafari" manage=off

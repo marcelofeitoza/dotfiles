@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd ~/Development/dotfiles/
+
 # Define the source directories and files
 SOURCE_DIRS=(
     "$HOME/.config/helix"
@@ -43,3 +45,6 @@ currentTime=$(date)
 git add .
 git commit -m "Update dotfiles on $currentTime"
 git push
+
+cd -
+
