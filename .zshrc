@@ -38,6 +38,8 @@ export PATH=$PATH:$(go env GOPATH)/bin
 export PATH="$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin"
 export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="/Users/marcelofeitoza/bin:$PATH"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$PATH
 
 # pnpm
 export PNPM_HOME="/Users/marcelofeitoza/Library/pnpm"

@@ -14,8 +14,8 @@ yabai -m config window_gap 8
 # -- mouse settings --
 
 # center mouse on window with focus
-yabai -m config mouse_follows_focus on
-yabai -m config focus_follows_mouse autofocus
+# yabai -m config mouse_follows_focus on
+# yabai -m config focus_follows_mouse autofocus
 
 # modifier for clicking and dragging with mouse
 yabai -m config mouse_modifier alt
@@ -28,6 +28,7 @@ yabai -m config mouse_action2 resize
 yabai -m mouse_drop_action swap
 
 # disable specific apps
+yabai -m rule --add app="^Finder" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
@@ -38,4 +39,5 @@ yabai -m rule --add app="^Weather$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^GIMP$" manage=off
 yabai -m rule --add app="^Activity Monitor" manage=off
-yabai -m rule --add app="^iSafari" manage=off
+yabai -m rule --add app="^Safari" manage=off
+yabai -m rule --add app="^Docker" manage=off
