@@ -49,3 +49,13 @@ case ":$PATH:" in
 esac
 # pnpm end
 alias update-dotfile=/Users/marcelofeitoza/Development/dotfiles/update-dotfile.sh
+
+# find . -name "*.tsx" | while read file; do
+#   echo "$file:"
+#   echo '```tsx'
+#   cat "$file"
+#   echo '```'
+#   echo ""
+# done
+# Create an alias for the command above in which I can pass the path (.) and the extension (tsx) as arguments
+alias cs="/Users/marcelofeitoza/code-snippets.sh"
