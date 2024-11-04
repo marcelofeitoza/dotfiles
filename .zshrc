@@ -25,17 +25,17 @@ alias zshrc="nvim ~/.zshrc"
 alias szsh="source ~/.zshrc"
 alias hex2ascii="xxd -r -p"
 alias ls='exa -l'
-alias code='/Users/marcelofeitoza/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
 alias s-now="sudo shutdown -h now"
 alias docker-clean='docker ps -q | xargs -r docker stop && docker ps -a -q | xargs -r docker rm && docker images -q | xargs -r docker rmi'
 alias n='nvim'
 
-export PATH="$HOME/.cargo/bin:$PATH"
+. "$HOME/.asdf/asdf.sh"
 export PATH="$HOME/.asdf/shims:$PATH"
 export PATH="$HOME/.asdf/bin:$HOME/.asdf/shims:$PATH"
+
+export PATH="$HOME/.cargo/bin:$PATH"
 export PATH=~/.npm-global/bin:$PATH
 export PATH=$PATH:$(go env GOPATH)/bin
-export PATH="$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin"
 export PATH="/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="/Users/marcelofeitoza/bin:$PATH"
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -50,12 +50,12 @@ esac
 # pnpm end
 alias update-dotfile=/Users/marcelofeitoza/Development/dotfiles/update-dotfile.sh
 
-# find . -name "*.tsx" | while read file; do
-#   echo "$file:"
-#   echo '```tsx'
-#   cat "$file"
-#   echo '```'
-#   echo ""
-# done
-# Create an alias for the command above in which I can pass the path (.) and the extension (tsx) as arguments
 alias cs="/Users/marcelofeitoza/code-snippets.sh"
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+
+# VSCode alias
+unalias code 2>/dev/null
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
