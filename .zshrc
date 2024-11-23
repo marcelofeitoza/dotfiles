@@ -59,3 +59,8 @@ export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 # VSCode alias
 unalias code 2>/dev/null
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
+# BPF binary to ASM
+alias so2asm='function _so2asm() { ezbpf -f "$1" -asm > "$(basename "${1%.so}.s")"; }; _so2asm'
+
+alias cl=cd\ ~/Development/solana/compute-labs
